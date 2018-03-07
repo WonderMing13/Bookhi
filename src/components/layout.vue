@@ -26,8 +26,16 @@
 </template>
 
 <script>
+import Dialog from './dialog'
 export default {
-  
+   components: {
+      Mydialog: Dialog
+   },
+   data() {
+     return {
+
+     }
+   }
 }
 </script>
 

@@ -27,7 +27,7 @@
         </div>
 
                 <div class="index-right">
-                    <slide-show :slides="slides"></slide-show>
+                    <slideshow :listImg ="listImg"></slideshow>
                     <div class="index-board-list">
                         <div class="index-board-item" v-for="(item,index) in boardList" :class="[{'line-last' : index % 2 !== 0},'index-board-' + item.id ]">
                             <div class="index-board-item-inner">
@@ -44,9 +44,34 @@
 </template>
 
 <script>
+import slideShow from '../components/slideShow'
 export default {
+   created: function () {
+       this.$http.post('http://localhost:8080/api/foods').then(function(data){
+           console.log(data)
+       },function(err){
+           console.log(err)
+       })
+   },
    data() {
        return {
+           listImg:[
+               {
+                  url:require('../assets/f1.jpg')                 
+               },
+               {
+                  url:require('../assets/f2.jpg')
+               },
+               {
+                  url:require('../assets/f3.jpg')    
+               },
+               {
+                  url:require('../assets/f4.jpg')  
+               },
+               {
+                  url:require('../assets/f5.jpg')
+               }
+           ],
            boardList:[
              {
                 id: 1,
@@ -138,6 +163,9 @@ export default {
                }
            }
        }
+   },
+   components:{
+       'slideshow':slideShow
    }
 }
 </script>
