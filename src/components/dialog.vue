@@ -41,10 +41,10 @@ export default {
   transition: all .3s ease;
 }
 .drop-enter {
-  transform: translateY(-500px);
+  transform: translateY(-600px);
 }
 .drop-leave-active {
-  transform: translateY(-500px);
+  transform: translateY(-600px);
 }
 
 .dialog-wrap {

@@ -8,6 +8,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import VueResource from 'vue-resource'
+import axios from 'axios'
 
 Vue.config.productionTip = false
 
@@ -16,6 +17,9 @@ Vue.use(VueResource)
 Vue.use(ElementUI)
 
 Vue.use(Vuex)
+
+axios.defaults.headers['Access-Control-Allow-Origin: *'] 
+Vue.prototype.$ajax = axios
 
 
 

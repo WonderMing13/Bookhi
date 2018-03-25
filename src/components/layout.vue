@@ -5,11 +5,11 @@
              <img src="../assets/logo.png">
             <div class="head-nav">
                <ul class="nav-list">
-                 <li>登录</li>
+                 <li><el-button type="text" @click="LoginFormVisible = true">登录</el-button></li>
                  <li class="nav-pile"> | </li>
-                 <li>注册</li>
+                 <li><el-button type="text" @click="RegisterFormVisible = true">注册</el-button></li>
                  <li class="nav-pile"> | </li>
-                 <li>关于</li>
+                 <li><el-button type="text" @click="Aboutit">关于</el-button></li>
                </ul>
             </div>
           </div>
@@ -22,19 +22,102 @@
       <div class="bk-footer">
          <p>@ 2018 wonderming coding</p>
       </div>
+
+      <el-dialog title="收货地址" :visible.sync="LoginFormVisible">
+         <el-form :model="form">
+            <el-form-item label="活动名称" :label-width="formLabelWidth">
+               <el-input v-model="form.name" auto-complete="off"></el-input>
+            </el-form-item>
+            <el-form-item label="活动区域" :label-width="formLabelWidth">
+               <el-select v-model="form.region" placeholder="请选择活动区域">
+                  <el-option label="区域一" value="shanghai"></el-option>
+                  <el-option label="区域二" value="beijing"></el-option>
+               </el-select>
+           </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+           <el-button @click="LoginFormVisible = false">取 消</el-button>
+           <el-button type="primary" @click="LoginFormVisible = false">确 定</el-button>
+        </div>
+     </el-dialog>
+    
+     <el-dialog title="用户注册" :visible.sync="RegisterFormVisible">
+         <el-form :model="registerFrom">
+             <el-form-item label="用户名" :label-width="formLabelWidth">
+                 <el-input v-model="registerFrom.userId" auto-complete="off"></el-input>
+             </el-form-item>
+
+             <el-form-item label="密码" :label-width="formLabelWidth">
+                   <el-input v-model="registerFrom.userPassword" auto-complete="off"></el-input>
+             </el-form-item>
+         </el-form>
+
+         <div slot="footer" class="dialog-footer">
+           <el-button @click="RegisterFormVisible = false">取 消</el-button>
+           <el-button type="primary" @click="RegisterFormVisible = false,registerit()">确 定</el-button>
+        </div>
+     </el-dialog>
+    
   </div>
 </template>
 
 <script>
-import Dialog from './dialog'
-export default {
-   components: {
-      Mydialog: Dialog
-   },
-   data() {
-     return {
+import qs from 'qs';
 
-     }
+export default {
+       data(){
+          return {
+            LoginFormVisible: false,
+            RegisterFormVisible:false,
+            form: {
+              name: '',
+              region: '',
+              date1: '',
+              date2: '',
+              delivery: false,
+              type: [],
+              resource: '',
+              desc: ''
+            },
+            registerFrom: {
+              userId: '',
+              userPassword: ''
+            },
+        formLabelWidth: '120px'
+      };
+    },
+       methods: {
+         registerit(){
+             console.log(this.registerFrom)
+             var obj = JSON.stringify(this.registerFrom)
+             console.log(obj)
+             this.$ajax.post('http://localhost:8081/bookhi2/httpConn/post',(
+               {info_user:{add:[obj]}}))
+             .then(function(response){
+               console.log(response);
+             }).catch(function(error){
+               console.log(error);
+             });
+         },
+         
+      Aboutit() {
+        this.$prompt('请输入邮箱', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          inputPattern: /[\w!#$%&'*+/=?^_`{|}~-]+(?:\.[\w!#$%&'*+/=?^_`{|}~-]+)*@(?:[\w](?:[\w-]*[\w])?\.)+[\w](?:[\w-]*[\w])?/,
+          inputErrorMessage: '邮箱格式不正确'
+        }).then(({ value }) => {
+          this.$message({
+            type: 'success',
+            message: '你的邮箱是: ' + value
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '取消输入'
+          });       
+        });
+      }
    }
 }
 </script>
