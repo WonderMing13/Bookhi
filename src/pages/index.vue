@@ -34,7 +34,7 @@
                                 <h2>{{ item.title }}</h2>
                                  <p>{{ item.description }}</p>
                                  <div class="index-board-button">
-                                     <a href="" class="button">立即购买</a>
+                                    <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即查看</router-link>
                                  </div>
                             </div>
                         </div>
@@ -46,13 +46,13 @@
 <script>
 import slideShow from '../components/slideShow'
 export default {
-   created: function () {
-       this.$http.post('http://localhost:8080/api/foods').then(function(data){
-           console.log(data)
-       },function(err){
-           console.log(err)
-       })
-   },
+//    created: function () {
+//        this.$http.post('http://localhost:8080/api/foods').then(function(data){
+//            console.log(data)
+//        },function(err){
+//            console.log(err)
+//        })
+//    },
    data() {
        return {
            listImg:[
@@ -77,24 +77,28 @@ export default {
                 id: 1,
                 title: '分类统计',
                 description: '根据综合数据显示哪本书籍最适合读者看',
+                toKey: 'count',
                 saleout: false
              },
              {
                 id: 2,
                 title: '社区评论',
                 description: '针对某本书籍读者给予真实的感受',
+                toKey: 'comment',
                 saleout: false
              },
              {
                 id: 3,
                 title: '推广分享',
                 description: '可以分享微博微信QQ等信息',
+                toKey: 'share',
                 saleout: false
              },
              {
                 id: 4,
                 title: '物流选择',
                 description: '选择书嗨的专属物流或者其他',
+                toKey: 'logistics',
                 saleout: false
              }
            ],

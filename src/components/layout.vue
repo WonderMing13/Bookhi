@@ -2,7 +2,9 @@
   <div>
       <div class="bk-header">
           <div class="bk-header-inner">
-             <img src="../assets/logo.png">
+            <router-link :to="{path: '/'}">
+              <img src="../assets/logo.png">
+            </router-link>
             <div class="head-nav">
                <ul class="nav-list">
                  <li><el-button type="text" @click="LoginFormVisible = true">登录</el-button></li>
