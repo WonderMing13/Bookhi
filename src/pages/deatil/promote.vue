@@ -18,7 +18,11 @@
 
               <div class="sales-board-line">
                    <div class="sales-board-line-left">
-                        产品类型:
+                       产品类型:
+                        <el-select v-model="value5" multiple placeholder="请选择">
+                              <el-option v-for="item in optionList" :key="item.value" :label="item.label" :value="item.value">
+                              </el-option>
+                        </el-select>
                    </div>
                    <div class="sales-board-line-right">
 
@@ -28,6 +32,8 @@
               <div class="sales-board-line">
                    <div class="sales-board-line-left">
                         有效时间:
+                        <el-switch v-model="value3" active-text="按月付费" inactive-text="按年付费">
+                        </el-switch>
                    </div>
                    <div class="sales-board-line-right">
 
@@ -37,6 +43,10 @@
               <div class="sales-board-line">
                    <div class="sales-board-line-left">
                         产品版本:
+                        <el-select v-model="value4" clearable placeholder="请选择">
+                            <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+                            </el-option>
+                        </el-select>
                    </div>
                    <div class="sales-board-line-right">
 
@@ -91,8 +101,35 @@
  export default{
      data() {
          return {
-             value8: 0
+             value8: 0,
+             value3: true,
+             options:[{
+                  value: '选项1',
+                  label: '测试版'
+             },{
+                  value: '选项2',
+                  label: '正式版'
+             },{
+                  value: '选项3',
+                  label: '上线版'
+             }],
+
+             value5: '',
+             value4: '',
+             optionList: [{
+                  value: '选项1',
+                  label: '微信公众号'
+             },{
+                  value: '选项2',
+                  label: '手机微营销'
+             },{
+                   value: '选项3',
+                   label: '首页广告位'
+             }]
          }
+     },
+     methods:{
+      
      }
  }
 </script>
@@ -100,9 +137,6 @@
 <style scoped>
 .sales-board {
   background: #fff;
-}
-.sales-board-form {
-
 }
 .sales-board-intro h2 {
   font-size: 20px;
@@ -115,7 +149,7 @@
   line-height: 1.8;
 }
 .sales-board-form {
-  padding: 30px 20px;
+  padding: 30px 40px;
   font-size: 14px;
 }
 .sales-board-line {
@@ -161,4 +195,5 @@
     border: 1px solid #f0f2f5;
     padding: 15px;
 }
+
 </style>

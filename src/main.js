@@ -8,9 +8,12 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
 import VueResource from 'vue-resource'
+import echarts from 'echarts'
 import axios from 'axios'
 
 Vue.config.productionTip = false
+
+Vue.prototype.$echarts = echarts
 
 Vue.use(VueResource)
 
