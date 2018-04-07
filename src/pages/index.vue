@@ -100,6 +100,20 @@ export default {
                 description: '选择书嗨的专属物流或者其他',
                 toKey: 'logistics',
                 saleout: false
+             },
+             {
+                 id: 5,
+                 title: '发布信息',
+                 description: '发布电子书或者纸质书的订单',
+                 toKey: 'book',
+                 saleout: false
+             },
+             {
+                 id: 6,
+                 title: '租用订单',
+                 description: '租聘图书信息等',
+                 toKey: 'order',
+                 saleout: false
              }
            ],
            newsList: [
@@ -241,6 +255,12 @@ export default {
 }
 .index-board-4 .index-board-item-inner{
   background: url(../assets/4.png) no-repeat;
+}
+.index-board-5 .index-board-item-inner{
+  background: url(../assets/5.png) no-repeat;
+}
+.index-board-6 .index-board-item-inner{
+  background: url(../assets/6.png) no-repeat;
 }
 .index-board-item h2 {
   font-size: 18px;

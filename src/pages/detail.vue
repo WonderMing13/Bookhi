@@ -43,6 +43,16 @@
                         name: '物流查询',
                         path: 'logistics',
                         active: false
+                    },
+                    {
+                        name: '发布信息',
+                        path: 'book',
+                        active: false
+                    },
+                    {
+                        name: '租用订单',
+                        path: 'order',
+                        active: false
                     }
                 ],
                 
@@ -50,7 +60,9 @@
                     '/detail/count': require('../assets/1.png'),
                     '/detail/comment': require('../assets/2.png'),
                     '/detail/share': require('../assets/3.png'),
-                    '/detail/logistics': require('../assets/4.png')
+                    '/detail/logistics': require('../assets/4.png'),
+                    '/detail/book': require('../assets/5.png'),
+                    '/detail/order': require('../assets/6.png')
                 }
             }
         },

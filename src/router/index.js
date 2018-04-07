@@ -7,6 +7,8 @@ import DetailqueryPage from '@/pages/deatil/query'
 import DetailpromotePage from '@/pages/deatil/promote'
 import DetailcommunityPage from '@/pages/deatil/community'
 import DetailclassificationPage from '@/pages/deatil/classification'
+import DetailbookPage from '@/pages/deatil/book'
+import DetailorderPage from '@/pages/deatil/order'
 
 Vue.use(Router)
 
@@ -37,6 +39,14 @@ export default new Router({
         {
           path: 'logistics',
           component: DetailqueryPage
+        },
+        {
+          path: 'book',
+          component: DetailbookPage
+        },
+        {
+          path: 'order',
+          component: DetailorderPage
         }
       ]
     }
