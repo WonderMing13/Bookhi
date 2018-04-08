@@ -3,7 +3,7 @@
           <div class="comment">
                <div class="imagelist">
                     <el-row>
-                        <el-col :span="6" v-for="(o,index) in 8" :key="o" :offset="1">
+                        <el-col :span="6" v-for="(o,index) in 6" :key="o" :offset="1">
                               <el-card :body-style="{padding: '0px'}">
                                    <img src="../../assets/logo.png" class="image">
                                    <div style="padding: 14px;">

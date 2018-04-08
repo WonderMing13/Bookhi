@@ -1,8 +1,11 @@
 <template>
      <div class="main">
           <div class="query">
-               <el-input v-model="input" placeholder="请输入快递单号"></el-input>
-               <el-button type="primary" icon="el-icon-search">搜索</el-button>
+               <el-form :label-position="top" label-width="80px" :model="formLabelAlign">
+                     <el-form-item label="名称">
+                         <el-input v-model="formLabelAlign.name"></el-input>
+                     </el-form-item>
+               </el-form>
           </div>
      </div>
 </template>
