@@ -42,7 +42,7 @@
                                        <el-input v-model="form.num"></el-input>
                                  </el-form-item>
                                  <el-form-item>
-                                      <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                                      <el-button type="primary" @click="onSubmitPaper">立即创建</el-button>
                                       <el-button>清空</el-button>
                                  </el-form-item>
                           </el-form>
@@ -76,7 +76,7 @@
                                        <el-input v-model="formEletronic.num"></el-input>
                                  </el-form-item>
                                  <el-form-item>
-                                      <el-button type="primary" @click="onSubmit">立即创建</el-button>
+                                      <el-button type="primary" @click="onSubmitEletronic">立即创建</el-button>
                                       <el-button>清空</el-button>
                                  </el-form-item>
                           </el-form>
@@ -124,8 +124,11 @@ export default {
          handlePreview(file) {
             console.log(file);
          },
-         onSubmit(){
-             console.log('submit!');
+         onSubmitPaper(){
+            this.$router.push({path:'/detail/bookNext'})
+         },
+         onSubmitEletronic(){
+            this.$router.push({path:'/detail/bookNext'})
          }
      }
 }

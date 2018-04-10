@@ -9,7 +9,7 @@
                   <ul>
                      <li v-for="item in product.list">
                          <a :href="item.url">{{ item.title }}</a>
-                         <span v-if="item.hot" class="hot-tag">HOT</span>
+                         <span v-if="item.hot" class="hot-tag">Hot</span>
                      </li>
                   </ul>
                   <div v-if="!product.last" class="hr"></div>
@@ -21,6 +21,7 @@
                      <ul>
                          <li v-for="item in newsList">
                              <a :href="item.url">{{ item.title }}</a>
+                             <span v-if="item.new" class="new-tag">New</span>
                          </li>
                      </ul>
                 </div>
@@ -119,6 +120,7 @@ export default {
            newsList: [
                {
                   title: '充值满200减100',
+                  new: true,
                   url:'www.baidu.com'
                },
                {
@@ -278,6 +280,10 @@ export default {
   min-height: 512px;
 }
 .hot-tag {
+  background: red;
+  color: #fff;
+}
+.new-tag {
   background: red;
   color: #fff;
 }

@@ -9,6 +9,8 @@ import DetailcommunityPage from '@/pages/deatil/community'
 import DetailclassificationPage from '@/pages/deatil/classification'
 import DetailbookPage from '@/pages/deatil/book'
 import DetailorderPage from '@/pages/deatil/order'
+import OrdernextPage from '@/pages/deatil/deatilPage/orderNext'
+import BooknextPage from '@/pages/deatil/deatilPage/bookNext'
 
 Vue.use(Router)
 
@@ -18,6 +20,10 @@ export default new Router({
     {
       path: '/',    
       component: IndexPage
+    },
+    {
+       path: '/orderNext',
+       component: OrdernextPage
     },
     {
       path: '/detail',
@@ -41,8 +47,12 @@ export default new Router({
           component: DetailqueryPage
         },
         {
-          path: 'book',
-          component: DetailbookPage
+           path: 'book',
+           component: DetailbookPage
+        },
+        {
+           path: 'bookNext',
+           component: BooknextPage
         },
         {
           path: 'order',

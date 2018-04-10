@@ -21,8 +21,8 @@
                 </el-table-column>
                 <el-table-column label="操作">
                     <template slot-scope="scope">
-                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">购买</el-button>
-                    <el-button size="mini" @click="handleDelete(scope.$index, scope.row)">租用</el-button>
+                    <el-button size="mini" @click="handleBuy(scope.$index, scope.row)">购买</el-button>
+                    <el-button size="mini" @click="handleRent(scope.$index, scope.row)">租用</el-button>
                     </template>
                 </el-table-column>
              </el-table>
@@ -55,10 +55,11 @@ export default {
    },
    
    methods: {
-      handleEdit(index, row) {
+      handleBuy(index, row) {
         console.log(index, row);
+        this.$router.push({path:'/orderNext'})
       },
-      handleDelete(index, row) {
+      handleRent(index, row) {
         console.log(index, row);
       }
     }
