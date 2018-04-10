@@ -8,6 +8,7 @@
                   <h3>{{ product.title }}</h3>
                   <ul>
                      <li v-for="item in product.list">
+                         <img :src="item.src">
                          <a :href="item.url">{{ item.title }}</a>
                          <span v-if="item.hot" class="hot-tag">Hot</span>
                      </li>
@@ -142,19 +143,23 @@ export default {
                    list: [
                        {
                            title: '武侠世界',
-                           url: 'www.baidu.com'
+                           url: 'detail/order',
+                           src: require('../assets/N1.png')
                        },
                        {
                            title: '都市生活',
-                           url: 'www.baidu.com'
+                           url: 'detail/order',
+                           src: require('../assets/N2.png')
                        },
                        {
                            title: '现实推理',
-                           url: 'www.baidu.com'
+                           url: 'detail/order',
+                           src: require('../assets/N3.png')
                        },
                        {
                            title: '科幻未来',
-                           url: 'www.baidu.com'
+                           url: 'detail/order',
+                           src: require('../assets/N4.png')
                        }
                    ]
                },
@@ -165,19 +170,23 @@ export default {
                         {
                             title: '高等数学',
                             hot: true,
-                            url:'www.baidu.com'
+                            url:'detail/order',
+                            src: require('../assets/N5.png')
                         },
                         {
                             title: '线性代数',
-                            url:'www.baidu.com'
+                            url:'detail/order',
+                            src: require('../assets/N5.png')
                         },
                         {
                             title: 'Java程序设计基础',
-                            url:'www.baidu.com'
+                            url:'detail/order',
+                            src: require('../assets/N5.png')
                         },
                         {
                             title: '离散数学',
-                            url:'www.baidu.com'
+                            url:'detail/order',
+                            src: require('../assets/N5.png')
                         }
                     ]
                }
